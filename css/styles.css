@@ -116,26 +116,6 @@ header.header-hidden{
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ================= MAIN CON BORDES ================= */
-.main-con-bordes{
-    position: relative;
-    z-index: 2;
-}
-
-.main-con-bordes::before,
-.main-con-bordes::after{
-    content: "";
-    position: fixed;
-    top: 0;
-    width: 60px;
-    height: 100vh;
-    z-index: 1;
-    pointer-events: none;
-    background: linear-gradient(to bottom, rgba(88,24,31,0.35), rgba(0,0,0,0));
-}
-
-.main-con-bordes::before{ left: 0; }
-.main-con-bordes::after{ right: 0; }
 
 /* ================= HERO ================= */
 .hero{
@@ -918,4 +898,273 @@ header.header-hidden{
   .btn-descubre::after{
     bottom: -8px;
   }
+}
+
+/* ===== HERO HISTORIA ===== */
+.hero-historia {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('/img/fondos/3.png') center/cover no-repeat;
+}
+
+.hero-historia-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: #fff;
+}
+
+/* ===== TARJETA HISTORIA ===== */
+.historia-card-section {
+    padding: 80px 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.historia-card {
+    background: #f2f2f2;
+    color: #111;
+    border-radius: 20px;
+    padding: 50px;
+    display: flex;
+    gap: 40px;
+    max-width: 1100px;
+    align-items: center;
+}
+
+.historia-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+}
+
+.historia-text h2 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 20px;
+}
+
+.historia-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .historia-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ===== SECCIÓN INTEGRANTES ===== */
+.integrantes{
+  position: relative;
+  padding: 90px 8%;
+  background: #0a0a0a;
+}
+
+.integrantes-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.integrantes-title{
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  text-align: center;
+  margin-bottom: 50px;
+  color: rgba(255,255,255,0.95);
+  letter-spacing: 1px;
+}
+
+/* Tarjeta */
+.integrante-card{
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 28px;
+  align-items: center;
+
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  padding: 22px;
+  margin: 0 auto 26px;
+  max-width: 980px;
+
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+}
+
+.integrante-foto {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+    padding: 10px;
+}
+
+.integrante-foto img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Texto */
+.integrante-info h3{
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  margin: 0 0 14px;
+  color: #111;
+}
+
+.integrante-info .muted{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+
+.integrante-info p{
+  font-family: 'Montserrat', sans-serif;
+  color: #111;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.integrante-info strong{
+  font-weight: 600;
+}
+
+/* ===== Animación reveal tipo “landing” ===== */
+.reveal{
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(6px);
+  transition: opacity .85s ease, transform .85s cubic-bezier(.2,.9,.2,1), filter .85s ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .integrante-card{
+    grid-template-columns: 1fr;
+  }
+
+  .integrante-foto{
+    height: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+/* =========================
+   FOOTER CINEMÁTICO LIMPIO
+========================= */
+
+.footer {
+  position: relative;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px 0;
+  overflow: hidden; /* importante */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Degradado elegante controlado */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -70px;              /* mucho más controlado */
+  left: 0;
+  width: 100%;
+  height: 120px;           /* más corto */
+  background: linear-gradient(
+    to bottom,
+    rgba(120, 0, 25, 0.65),
+    rgba(0, 0, 0, 0)
+  );
+  pointer-events: none;
+}
+
+/* Contenido */
+.footer-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 45px;
+}
+
+/* Redes */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 18px;
+}
+
+.footer-social a {
+  color: #fff;
+  font-size: 1.7rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: scale(1.15);
+  color: #c62d3f;
+}
+
+/* Copyright */
+.footer-copy {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+}
+
+/* Línea inferior */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 16px 0;
+}
+
+.footer-bottom-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+  padding: 0 28px;
+}
+
+.footer-bottom a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
 }

@@ -80,3 +80,37 @@ document.addEventListener("DOMContentLoaded", () => {
     cineElements.forEach((el) => observer.observe(el));
   }
 });
+
+// ===== REVEAL tarjetas integrantes =====
+document.addEventListener("DOMContentLoaded", () => {
+  const revealEls = document.querySelectorAll(".reveal");
+
+  const obs = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+
+  revealEls.forEach(el => obs.observe(el));
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const footer = document.querySelector(".footer");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footer.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  observer.observe(footer);
+
+});

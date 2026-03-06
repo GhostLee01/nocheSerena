@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.querySelector(".menu-toggle");
   const menu = document.querySelector(".nav-links");
 
-  /* ========= HAMBURGUESA ========= */
   const openMenu = () => {
     btn.classList.add("is-open");
     menu.classList.add("is-open");
@@ -21,17 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
     isOpen ? closeMenu() : openMenu();
   });
 
-  // Cierra el menú al hacer click en un link
   menu?.addEventListener("click", (e) => {
     if (e.target.tagName === "A") closeMenu();
   });
 
-  // Cierra con ESC
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
 
-  /* ========= HEADER DESAPARECE AL BAJAR ========= */
   let lastScroll = 0;
 
   window.addEventListener(
@@ -39,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     () => {
       const currentScroll = window.scrollY;
 
-      // si el menú está abierto en móvil, no escondas el header (para que no se pierda)
       const menuOpen = menu?.classList.contains("is-open");
 
       if (currentScroll <= 10) {
@@ -50,9 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!menuOpen) {
         if (currentScroll > lastScroll) {
-          header?.classList.add("header-hidden"); // baja → desaparece
+          header?.classList.add("header-hidden");
         } else {
-          header?.classList.remove("header-hidden"); // sube → aparece
+          header?.classList.remove("header-hidden");
         }
       }
 
@@ -61,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { passive: true }
   );
 
-  /* ========= EFECTO CINE ========= */
   const cineElements = document.querySelectorAll(".btn-descubre.cine, .btn-descubre.cine-pro");
 
   if (cineElements.length > 0) {
@@ -70,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target); // se anima solo una vez
+            obs.unobserve(entry.target);
           }
         });
       },
@@ -81,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ===== REVEAL tarjetas integrantes =====
 document.addEventListener("DOMContentLoaded", () => {
   const revealEls = document.querySelectorAll(".reveal");
 

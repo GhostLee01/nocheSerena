@@ -107,3 +107,74 @@ document.addEventListener("DOMContentLoaded", () => {
   observer.observe(footer);
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const trioFilter = document.querySelector("#filtro-trio");
+  const table = document.querySelector("#tabla-repertorio");
+  const emptyState = document.querySelector("#repertorio-sin-resultados");
+
+  if (!trioFilter || !table) return;
+
+  const rows = Array.from(table.querySelectorAll("tbody tr"));
+
+  const normalize = (text) =>
+    text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+
+  const getUniqueValues = (columnIndex) => {
+    const seen = new Set();
+
+    rows.forEach((row) => {
+      const cellText = row.querySelectorAll("td")[columnIndex]?.textContent || "";
+      const value = cellText.trim();
+      if (value) seen.add(value);
+    });
+
+    return Array.from(seen).sort((a, b) => a.localeCompare(b, "es", { sensitivity: "base" }));
+  };
+
+  const populateTrioOptions = () => {
+    const options = getUniqueValues(1);
+
+    trioFilter.innerHTML = "";
+
+    const allOption = document.createElement("option");
+    allOption.value = "";
+    allOption.textContent = "Todos los trios";
+    trioFilter.appendChild(allOption);
+
+    options.forEach((opt) => {
+      const option = document.createElement("option");
+      option.value = opt;
+      option.textContent = opt;
+      trioFilter.appendChild(option);
+    });
+  };
+
+  const applyFilter = () => {
+    const query = normalize(trioFilter.value);
+
+    let visibleRows = 0;
+
+    rows.forEach((row) => {
+      const cells = row.querySelectorAll("td");
+      const cellText = normalize(cells[1]?.textContent || "");
+      const matches = query === "" || cellText === query;
+
+      row.style.display = matches ? "" : "none";
+      if (matches) visibleRows += 1;
+    });
+
+    if (emptyState) {
+      emptyState.hidden = visibleRows !== 0;
+    }
+  };
+
+  trioFilter.addEventListener("change", applyFilter);
+
+  populateTrioOptions();
+  applyFilter();
+});

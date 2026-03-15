@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noche Serena Monterrey</title>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2I6GTG2C4Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2I6GTG2C4Y');
-    </script>
 
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-21G6TG2C4Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-21G6TG2C4Y');
+</script>
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
@@ -52,38 +53,24 @@
                   </a>
                 </li>
                 
-                <li>
-                <a href="vistas/nosotros.html"
-                   onclick="gtag('event','click_sobre_nosotros',{event_category:'menu',event_label:'header'});">
-                   Sobre nosotros
-                  </a>
-                </li>
-
-            <li>
-              <a href="#musica"
-              onclick="gtag('event','click_musica',{event_category:'menu',event_label:'header'});">
-              Música
-            </a>
-          </li>
+                        <li>
+                            <a href="vistas/nosotros.html"
+                                 onclick="gtag('event','click_sobre_nosotros',{event_category:'menu',event_label:'header'});">
+                                 Nuestro trío
+                            </a>
+                        </li>
           
             <li>
-              <a href="#catalogo"
-                   onclick="gtag('event','click_catalogo',{event_category:'menu',event_label:'header'});">
-                   Catálogo
+              <a href="vistas/repertorio.html"
+                   onclick="gtag('event','click_repertorio',{event_category:'menu',event_label:'header'});">
+                   Repertorio
                   </a>
             </li>
 
             <li>
-                <a href="#eventos"
-                   onclick="gtag('event','click_eventos',{event_category:'menu',event_label:'header'});">
-                   Eventos
-                </a>
-            </li>
-
-            <li>
-                <a href="#contenido"
-                   onclick="gtag('event','click_contenido',{event_category:'menu',event_label:'header'});">
-                   Contenido
+                <a href="vistas/historia.html"
+                   onclick="gtag('event','click_historia',{event_category:'menu',event_label:'header'});">
+                   Historia del bolero
                 </a>
             </li>
 
@@ -113,7 +100,6 @@
         </div>
 
     </section>
-
 
     <!-- HISTORIA -->
     <section id="sobre" class="historia">
@@ -156,6 +142,8 @@
 
         <div class="propuesta-content">
 
+                        <p class="propuesta-kicker">Propuesta Artistica</p>
+
             <h2 class="propuesta-title">
                 <span class="ornamento left">❦</span>
                 <span class="title-top">Nuestra Propuesta</span>
@@ -163,33 +151,46 @@
                 <span class="ornamento right">❦</span>
             </h2>
 
-            <p class="propuesta-intro">
-                Nuestra labor artística se orienta a la realización de
-            </p>
+                        <p class="propuesta-subtitle">
+                            Una seleccion interpretativa creada para acompanar celebraciones con elegancia,
+                            cercania y profundidad emocional.
+                        </p>
 
-            <ul class="propuesta-lista">
-                <li>Serenatas románticas</li>
-                <li>
-                    Aniversarios y celebraciones<br>
-                    especiales
-                </li>
-                <li>
-                    Homenajes y eventos<br>
-                    conmemorativos
-                </li>
-                <li>
-                    Presentaciones privadas y<br>
-                    reuniones formales
-                </li>
-            </ul>
+            <div class="propuesta-cards">
+                <article class="propuesta-card propuesta-card-media reveal">
+                    <div class="propuesta-card-copy">
+                        <h3>Nuestra propuesta Musical</h3>
+                        <p>
+                            El Trío Noche Serena MTY presenta un formato musical orientado a
+                            acompañar momentos especiales con elegancia, sensibilidad y respeto
+                            por la tradición del bolero.
+                        </p>
+                        <p>
+                            Cada presentación es preparada con atención al contexto de cada evento,
+                            buscando que la música no solo ambienta, sino que realza la experiencia
+                            de quienes la viven.
+                        </p>
+                    </div>
 
-            <p class="propuesta-cierre">
-                Cada intervención musical es concebida para<br>
-                crear una atmósfera íntima, distinguida y<br>
-                emocionalmente significativa, donde la música<br>
-                no solo acompaña el momento, sino que lo<br>
-                ennoblece.
-            </p>
+                    <div class="propuesta-card-bubble">
+                        <img src="img/imagenes_apoyo/integrantes_de_pie.jpeg" alt="Integrantes del Trío Noche Serena MTY">
+                    </div>
+                </article>
+
+                <article class="propuesta-card reveal">
+                    <h3>Servicios musicales</h3>
+                    <p>
+                        Nuestro repertorio y formato de interpretación se adaptan para serenatas
+                        románticas, aniversarios, homenajes, celebraciones privadas y encuentros
+                        de carácter formal.
+                    </p>
+                    <p>
+                        La calidad interpretativa, la presencia escénica y el cuidado en cada detalle
+                        nos permiten ofrecer una propuesta íntima, distinguida y emocionalmente
+                        significativa.
+                    </p>
+                </article>
+            </div>
 
         </div>
 

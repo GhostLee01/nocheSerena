@@ -824,7 +824,7 @@ header.header-hidden{
     text-align: center;
 
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                url('/img/fondos/3.png') center/cover no-repeat;
+        url('../img/fondos/3.png') center/cover no-repeat;
 }
 
 .hero-historia-title {

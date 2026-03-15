@@ -9,10 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css?v=20260315">
 
     <!-- JS -->
-    <script src="../js/app.js" defer></script>
+    <script src="../js/app.js?v=20260315" defer></script>
 </head>
 
 <body>
@@ -21,22 +21,22 @@
 <header>
     <nav class="banner">
 
-        <a class="logo" href="../index.html">
+        <a class="logo" href="../#inicio">
             <img src="../img/elementos/logosinfondo.png" alt="Noche Serena Logo">
         </a>
 
-        <button class="menu-toggle" aria-label="Abrir menú">
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
 
-        <ul class="nav-links">
-            <li><a href="../index.html">Inicio</a></li>
-          <li><a href="nosotros.html" class="active">Nuestro trío</a></li>
-            <li><a href="../vistas/repertorio.html">Repertorio</a></li>
-          <li><a href="historia.html">Historia del bolero</a></li>
-            <li><a href="../index.html#contacto">Contacto</a></li>
+        <ul id="main-menu" class="nav-links">
+            <li><a href="../#inicio">Inicio</a></li>
+          <li><a href="../nosotros/" class="active">Nuestro trío</a></li>
+            <li><a href="../repertorio/">Repertorio</a></li>
+          <li><a href="../historia/">Historia del bolero</a></li>
+            <li><a href="../#contacto">Contacto</a></li>
         </ul>
 
     </nav>
